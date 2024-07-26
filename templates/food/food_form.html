@@ -1,0 +1,21 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<h2>{% if food_item %}Edit{% else %}Add{% endif %} Food Item</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{% if food_item %}{{ food_item.name }}{% endif %}">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description">{% if food_item %}{{ food_item.description }}{% endif %}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" step="0.01" class="form-control" id="price" name="price" value="{% if food_item %}{{ food_item.price }}{% endif %}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

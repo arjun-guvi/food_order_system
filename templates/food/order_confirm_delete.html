@@ -1,0 +1,12 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<h2>Are you sure you want to delete this order?</h2>
+<p>Customer Name: {{ order.customer_name }}</p>
+<p>Total Price: ${{ order.total_price }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-secondary" href="{% url 'order_list' %}">Cancel</a>
+</form>
+{% endblock %}

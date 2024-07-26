@@ -1,0 +1,16 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<h2>Order Detail</h2>
+<p>Customer Name: {{ order.customer_name }}</p>
+<p>Customer Email: {{ order.customer_email }}</p>
+<p>Total Price: ${{ order.total_price }}</p>
+<p>Order Date: {{ order.order_date }}</p>
+<p>Food Items:</p>
+<ul>
+    {% for food_item in order.food_items.all %}
+    <li>{{ food_item.name }} - ${{ food_item.price }}</li>
+    {% endfor %}
+</ul>
+<a class="btn btn-secondary" href="{% url 'order_list' %}">Back</a>
+{% endblock %}

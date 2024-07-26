@@ -1,0 +1,25 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<h2>Create Order</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="customer_name">Customer Name</label>
+        <input type="text" class="form-control" id="customer_name" name="customer_name">
+    </div>
+    <div class="form-group">
+        <label for="customer_email">Customer Email</label>
+        <input type="email" class="form-control" id="customer_email" name="customer_email">
+    </div>
+    <div class="form-group">
+        <label for="food_items">Food Items</label>
+        <select multiple class="form-control" id="food_items" name="food_items">
+            {% for food_item in food_items %}
+            <option value="{{ food_item.pk }}">{{ food_item.name }} - ${{ food_item.price }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

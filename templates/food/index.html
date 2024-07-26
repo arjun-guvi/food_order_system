@@ -1,0 +1,10 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Online Food Order System</h1>
+    <p class="lead">Order your favorite food online.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'food_list' %}" role="button">View Food Items</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'order_list' %}" role="button">View Orders</a>
+</div>
+{% endblock %}
