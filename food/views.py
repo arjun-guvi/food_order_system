@@ -67,7 +67,7 @@ def order_create(request):
 
 def order_delete(request, pk):
     order = get_object_or_404(Order, pk=pk)
-    if request.method == 'POST':
+    if request.method == 'get':
         order.delete()
         return redirect('order_list')
     return render(request, 'food/order_confirm_delete.html', {'order': order})
